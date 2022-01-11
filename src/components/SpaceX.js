@@ -16,6 +16,7 @@ const SpaceX = () => {
                 SpaceX.map(value =>
                     value.launch_year < 2020 ?
                         <SpaceXComponent
+                            key={value.flight_number}
                             mission_name={value.mission_name}
                             launch_year={value.launch_year}
                             mission_patch_small={value.links.mission_patch_small}
