@@ -19,7 +19,6 @@ const SpaceX = () => {
                             launch_year={value.launch_year}
                             mission_patch_small={value.links.mission_patch_small}
                         /> : '')
-                 }
             }
         </div>
     );
