@@ -1,0 +1,10 @@
+.posts{
+    width: 50%;
+    background-color: #0a6c0a;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.post{
+    margin-bottom: 15px;
+}
+
