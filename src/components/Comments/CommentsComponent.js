@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CommentsComponent = (props) => {
-    let {id,postId,name,email,body} = props;
+    const {id,postId,name,email,body} = props;
     return (
         <div className={'comment'}>
             <h1>{id} - {name}</h1>

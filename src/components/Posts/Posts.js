@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import PostsComponent from "./PostsComponent";
 import "./Posts.css";
 

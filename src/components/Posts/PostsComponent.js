@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PostsComponent = (props) => {
-    let {id,userId,title,body} = props;
+    const {id,userId,title,body} = props;
     return (
         <div className={'post'}>
             <h1>{id} - {title}</h1>
