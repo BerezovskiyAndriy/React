@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import SpaceXComponent from "./SpaceXComponent";
 
 const SpaceX = () => {
-    const [SpaceX,setSpaceX] = useState([]);
+    const [spaceX,setSpaceX] = useState([]);
 
     useEffect(() => {
         fetch('https://api.spacexdata.com/v3/launches/')
@@ -13,7 +13,7 @@ const SpaceX = () => {
     return (
         <div className={'wrap'}>
             {
-                SpaceX.map(value =>
+                spaceX.map(value =>
                         <SpaceXComponent
                             key={value.flight_number}
                             mission_name={value.mission_name}
