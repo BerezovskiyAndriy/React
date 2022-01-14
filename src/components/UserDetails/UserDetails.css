@@ -1,0 +1,8 @@
+.user_details{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+}
+.user_details > button{
+    width: fit-content;
+}

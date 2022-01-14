@@ -1,27 +1,19 @@
 import React, {useEffect, useState} from 'react';
 
-import PostsComponent from "./PostsComponent";
-import "./Posts.css";
+import {postServices} from "../../services/posts.service";
+import Post from "../Post/Post";
 
-const Posts = () => {
-    const [posts,setPosts] = useState([]);
+const Posts = ({userId}) => {
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => response.json())
+        postServices.getByIdUsers(userId)
             .then(value => setPosts(value))
-    },[])
+    }, [])
     return (
-        <div className={'posts'}>
-            {
-                posts.map(value => <PostsComponent
-                    key={value.id}
-                    id={value.id}
-                    userId={value.userId}
-                    title={value.title}
-                    body={value.body}
-                />)
-            }
+        <div>
+            {posts.map(value => <Post key={value.id}
+                                      post={value}/>)}
         </div>
     );
 };
