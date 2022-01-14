@@ -1,10 +1,10 @@
 import React from 'react';
 
 const UsersComponent = (props) => {
-    const {id,name,username,email} = props;
+    const {user: {id, name, username, email}} = props;
     return (
         <div>
-            <p>{name}</p>
+            {id} {name} -- {username} -- {email}
         </div>
     );
 };
