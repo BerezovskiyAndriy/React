@@ -16,10 +16,7 @@ const Forms = ({users,setUsers}) => {
         const {name,username,email} = form;
 
        const filter = users.filter(value => {
-            if (value.name.includes(name) && value.username.includes(username) && value.email.includes(email)) {
-                return value
-            }
-            return null
+            return value.name.includes(name) && value.username.includes(username) && value.email.includes(email)
         })
         setUsers(filter);
     }

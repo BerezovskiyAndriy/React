@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './User.css';
+
 const UsersComponent = (props) => {
     const {user: {id, name, username, email}} = props;
     return (

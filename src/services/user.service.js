@@ -4,4 +4,4 @@ const getAll = () => {
     return fetch(urls.user)
         .then(response => response.json())
 }
- export const userService = {getAll}
+export const userService = {getAll}

@@ -6,18 +6,19 @@ import Forms from "./components/Forms/Forms";
 import {userService} from "./services/user.service";
 
 function App() {
-    const [users,setUsers] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
-      userService.getAll()
+        userService.getAll()
             .then(users => setUsers(users))
-    },[])
-  return (
-    <div className="App">
-      <Forms users={users} setUsers={setUsers}/>
-      <Users users={users}/>
-    </div>
-  );
+    }, [])
+    return (
+        <div className="App">
+            <Forms users={users}
+                   setUsers={setUsers}/>
+            <Users users={users}/>
+        </div>
+    );
 }
 
 export default App;

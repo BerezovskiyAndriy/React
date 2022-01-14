@@ -4,7 +4,8 @@ const Users = ({users}) => {
     return (
         <div>
             {
-                users.map(value => <UsersComponent key={value.id} user={value}/>)
+                users.map(value => <UsersComponent key={value.id}
+                                                   user={value}/>)
             }
         </div>
     );
