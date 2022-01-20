@@ -1,0 +1,6 @@
+.users_post{
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

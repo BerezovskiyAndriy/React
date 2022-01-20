@@ -1,0 +1,24 @@
+.user_details{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn_post{
+    margin-top: 5px;
+    padding:5px 10px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: red;
+    letter-spacing: 2px;
+}
+.btn_post:hover{
+    border: 1px solid gray;
+    border-radius: 7px;
+    box-shadow: 7px 10px 38px 9px rgba(21, 23, 24, 0.2);
+}

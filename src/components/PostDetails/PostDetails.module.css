@@ -1,0 +1,21 @@
+.post_details{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 25px;
+}
+.post_details button{
+    padding:5px 10px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: red;
+    letter-spacing: 2px;
+}
+.post_details button:hover{
+    border: 1px solid gray;
+    border-radius: 7px;
+    box-shadow: 7px 10px 38px 9px rgba(21, 23, 24, 0.2);
+}
+.post{
+    width: 50%;
+}
