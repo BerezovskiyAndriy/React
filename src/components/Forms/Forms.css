@@ -1,0 +1,21 @@
+.form{
+    margin-bottom: 15px;
+}
+.form h3{
+    margin-bottom: 15px;
+    text-align: center;
+}
+.form > input{
+    padding: 6px;
+    margin-right: 15px;
+}
+.form > button{
+    border: 1px solid transparent;
+    background-color: #e4dacc;;
+    border-radius: 5px;
+    padding: 5px 16px;
+}
+.form > button:hover{
+    background-color: #000;
+    color: #fff;
+}
