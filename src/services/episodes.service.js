@@ -1,4 +1,6 @@
 import {axiosService} from "./axios.service";
 import {urls} from "../config/url";
 
-export const episodesService = axiosService.get(urls.episodes).then(value => value.data);
+export const episodesService = {
+    getByPage:(page) => axiosService(`${urls.episodes}?page=${page}`).then(value => value.data)
+}
