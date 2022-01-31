@@ -1,0 +1,6 @@
+.forms{
+    margin: 15px;
+}
+form > label{
+    padding-right: 15px;
+}

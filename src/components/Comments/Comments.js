@@ -1,30 +1,23 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 
-import CommentsComponent from "./CommentsComponent";
-import "./Comments.css"
+import {getComments} from "../../store/comments.slice";
+import {Comment} from "../Comment/Comment";
 
 const Comments = () => {
-    const [comments,setComments] = useState([]);
+    const {comments} = useSelector(state => state['commentsReducer']);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/comments')
-            .then(response => response.json())
-            .then(value => setComments(value))
-    },[])
+        dispatch(getComments())
+    }, [])
+
     return (
-        <div className={'comments'}>
-            {
-                comments.map(value => <CommentsComponent
-                    key={value.id}
-                    id={value.id}
-                    postId={value.postId}
-                    name={value.name}
-                    email={value.email}
-                    body={value.body}
-                />)
-            }
+        <div>
+            {comments.map(comment => <Comment key={comment.id}
+                                     comment={comment}/>)}
         </div>
     );
 };
 
-export default Comments;
+export {Comments};

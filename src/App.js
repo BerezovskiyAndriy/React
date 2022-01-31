@@ -1,16 +1,25 @@
+import {Navigate, Route, Routes} from 'react-router-dom';
+
+import {CarsPage, CommentsPage, HomePage, PostsPage, UsersPage} from "./pages";
+
 import './App.css';
-import Users from "./components/Users/Users";
-import Posts from "./components/Posts/Posts";
-import Comments from "./components/Comments/Comments";
 
 function App() {
   return (
-    <div className="App">
-        <Users/>
-        <Posts/>
-        <Comments/>
-    </div>
+      <div className="App">
+        <Routes>
+          <Route path={'/'} element={<HomePage/>}>
+            <Route index element={<Navigate to={'/cars'}/>}/>
+
+            <Route path={'/cars'} element={<CarsPage/>}/>
+            <Route path={'/users'} element={<UsersPage/>}/>
+            <Route path={'/posts'} element={<PostsPage/>}/>
+            <Route path={'/comments'} element={<CommentsPage/>}/>
+          </Route>
+        </Routes>
+      </div>
   );
 }
 
 export default App;
+

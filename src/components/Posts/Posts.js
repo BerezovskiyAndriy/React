@@ -1,29 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 
-import PostsComponent from "./PostsComponent";
-import "./Posts.css";
+import {getPosts} from "../../store/posts.slice";
+import {Post} from "../Post/Post";
 
 const Posts = () => {
-    const [posts,setPosts] = useState([]);
+    const {posts} = useSelector(state => state['postsReducer']);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => response.json())
-            .then(value => setPosts(value))
+        dispatch(getPosts())
     },[])
+
     return (
-        <div className={'posts'}>
-            {
-                posts.map(value => <PostsComponent
-                    key={value.id}
-                    id={value.id}
-                    userId={value.userId}
-                    title={value.title}
-                    body={value.body}
-                />)
-            }
+        <div>
+            {posts.map(post => <Post key={post.id} post={post}/>)}
         </div>
     );
 };
 
-export default Posts;
+export {Posts};
