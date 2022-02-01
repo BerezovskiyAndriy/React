@@ -1,6 +1,7 @@
 import {useForm} from "react-hook-form";
 import {useDispatch} from "react-redux";
 import {addTodo} from "../../store";
+import {v4} from 'uuid';
 
 
 const FormTodo = () => {
@@ -9,7 +10,9 @@ const FormTodo = () => {
     const {register,reset,handleSubmit} = useForm();
 
     function submit(data) {
-        dispatch(addTodo(data))
+        dispatch(addTodo({
+           ...data, id: v4()
+        }))
         reset();
     }
 
@@ -17,7 +20,7 @@ const FormTodo = () => {
         <div>
             <form onSubmit={handleSubmit(submit)}>
                 <label>
-                    <input type="text" {...register('todo')}/>
+                    <input type="text" {...register('name')}/>
                 </label>
                 <button>Save</button>
             </form>
