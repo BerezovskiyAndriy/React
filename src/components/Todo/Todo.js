@@ -1,5 +1,6 @@
-import {useDispatch, useSelector} from "react-redux";
-import {deleteTodo,toggleTodo} from "../../store";
+import {useDispatch} from 'react-redux';
+
+import {deleteTodo,toggleTodo} from '../../store';
 
 import './Todo.css';
 
@@ -15,7 +16,7 @@ const Todo = ( {todo,index} ) => {
     return (
         <div className={'todo'}>
             <input type="checkbox" onClick={isChecked}/>
-            <div>{todo.name}</div>
+            <div className={'todo-name'}>{todo.name}</div>
             <button onClick={() => dispatch(deleteTodo(todo))}>Delete</button>
         </div>
     );

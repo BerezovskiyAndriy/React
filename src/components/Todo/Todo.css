@@ -2,5 +2,26 @@
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
+    width: 420px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #f6e9f2;
+    border-radius: 4px;
+    font-style: italic;
+    letter-spacing: 3px;
 }
 
+.todo input:checked + div{
+    text-decoration: line-through;
+}
+.todo button{
+    background-color: #a6a6dc;;
+}
+.todo button:hover{
+    border: 1px dashed black;
+    background-color: #8487f1;
+}
+.todo-name{
+    text-align: center;
+}
