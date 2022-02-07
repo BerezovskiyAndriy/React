@@ -1,23 +1,15 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import './App.scss';
-import {axiosService} from "./services/axios.service";
-import {urls} from "./config/urls";
+import {Route, Routes} from "react-router-dom";
+import {Home, MovieList} from "./components";
 
 function App() {
-
-    useEffect(() => {
-        (async () => {
-           const res = await axiosService.get(urls.movie + '/550/videos')
-            console.log(res);
-            return res;
-        })()
-    },[])
-
     return (
-        <div className="App">
-
-        </div>
+            <Routes>
+                <Route path={'/'} element={<Home/>}/>
+                <Route path={'/movie'} element={<MovieList/>}/>
+            </Routes>
     );
 }
 
