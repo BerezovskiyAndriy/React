@@ -1,5 +1,5 @@
-import {Header} from "../Header/Header";
-import {MovieList} from "../MoviesList/MovieList";
+import {Header, MovieList} from "../../components";
+
 
 const Home = () => {
     return (

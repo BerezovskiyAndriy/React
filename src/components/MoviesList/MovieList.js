@@ -3,9 +3,9 @@ import {movieService} from "../../services/movie.service";
 
 const MovieList = () => {
 
-    useEffect(() => {
-       movieService.getAll().then(value => console.log(value.results))
-    },[])
+    // useEffect(() => {
+    //    movieService.getAll().then(value => console.log(value.results))
+    // },[])
 
     return (
         <div>
