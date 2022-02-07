@@ -8,11 +8,11 @@ const initialState = {
 
 // export const getMovieAsync = createAsyncThunk(
 //     'movie/getMovieAsync',
-//     async (_,dispatch) => {
+//     async ({pageId},dispatch) => {
 //         try {
 //             const movies = await movieService.getAll()
 //             console.log(movies);
-//             dispatch(getMovies(movies))
+//             // dispatch(getMovies(movies))
 //         } catch (e) {
 //             console.log(e);
 //         }
@@ -26,6 +26,10 @@ const movieSlice = createSlice({
         getMovies: (state,action) => {
             state.movies = action.payload;
         }
+    // extraReducers: {
+    //     getMovies: (state,action) => {
+    //         state.movies = action.payload;
+    //     }
     }
 })
 

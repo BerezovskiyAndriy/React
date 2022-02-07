@@ -5,9 +5,18 @@
 
   .movie{
     width: 250px;
-    height: 400px;
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     text-align: center;
+  }
+
+  h2{
+
+  }
+
+  img{
+    width: 250px;
   }
 }

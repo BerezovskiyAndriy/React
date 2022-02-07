@@ -8,7 +8,7 @@ function App() {
     return (
             <Routes>
                 <Route path={'/'} element={<Home/>}/>
-                <Route path={'/movie:id'} element={<MovieList/>}/>
+                <Route path={'/movie/page=:pageId'} element={<MovieList/>}/>
             </Routes>
     );
 }
