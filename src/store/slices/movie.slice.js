@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 import {movieService} from "../../services/movie.service";
 
@@ -8,11 +8,9 @@ const initialState = {
 
 export const getMovieAsync = createAsyncThunk(
     'movie/getMovieAsync',
-    async ({pageId},dispatch) => {
+    async (page) => {
         try {
-            const movies = await movieService.getAll(2).then(value => console.log(value))
-            console.log(movies);
-            dispatch(getMovies(movies))
+            return await movieService.getByPage(page);
         } catch (e) {
             console.log(e);
         }
@@ -22,14 +20,10 @@ export const getMovieAsync = createAsyncThunk(
 const movieSlice = createSlice({
     name: 'movie',
     initialState,
-    reducers: {
-        getMovies: (state,action) => {
+    extraReducers: {
+        [getMovieAsync.fulfilled]: (state, action) => {
             state.movies = action.payload.results;
         }
-    // extraReducers: {
-    //     getMovies: (state,action) => {
-    //         state.movies = action.payload;
-    //     }
     }
 })
 
