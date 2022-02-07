@@ -1,23 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 
-import './App.css';
-import Episodes from "./components/Episodes/Episodes";
-import {Navigate, Route, Routes} from "react-router-dom";
-import Home from "./pages/Home/Home";
-import Characters from "./components/Characters/Characters";
+import './App.scss';
+import {axiosService} from "./services/axios.service";
+import {urls} from "./config/urls";
 
 function App() {
-  return (
-    <div className="App">
-        <Routes>
-            <Route path={'/'} element={<Home/>}>
-                <Route index element={<Navigate to={'episode/1'}/>}/>
-                <Route path={'episode/:id'} element={<Episodes/>}/>
-                <Route path={'character/:id'} element={<Characters/>}/>
-            </Route>
-        </Routes>
-    </div>
-  );
+
+    useEffect(() => {
+        (async () => {
+           const res = await axiosService.get(urls.movie + '/550/videos')
+            console.log(res);
+            return res;
+        })()
+    },[])
+
+    return (
+        <div className="App">
+
+        </div>
+    );
 }
 
 export default App;
