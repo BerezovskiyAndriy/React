@@ -6,25 +6,25 @@ const initialState = {
     movies: []
 }
 
-// export const getMovieAsync = createAsyncThunk(
-//     'movie/getMovieAsync',
-//     async ({pageId},dispatch) => {
-//         try {
-//             const movies = await movieService.getAll()
-//             console.log(movies);
-//             // dispatch(getMovies(movies))
-//         } catch (e) {
-//             console.log(e);
-//         }
-//     }
-// )
+export const getMovieAsync = createAsyncThunk(
+    'movie/getMovieAsync',
+    async ({pageId},dispatch) => {
+        try {
+            const movies = await movieService.getAll(2).then(value => console.log(value))
+            console.log(movies);
+            dispatch(getMovies(movies))
+        } catch (e) {
+            console.log(e);
+        }
+    }
+)
 
 const movieSlice = createSlice({
     name: 'movie',
     initialState,
     reducers: {
         getMovies: (state,action) => {
-            state.movies = action.payload;
+            state.movies = action.payload.results;
         }
     // extraReducers: {
     //     getMovies: (state,action) => {

@@ -11,11 +11,12 @@ import {useParams} from "react-router-dom";
 const MovieList = () => {
     const {movies} = useSelector(state => state['movieReducer']);
     const dispatch = useDispatch();
+
     const {pageId} = useParams();
     console.log(pageId);
 
     useEffect(() => {
-        movieService.getAll(2).then(value => dispatch(getMovies(value.results)))
+        movieService.getAll().then(value => dispatch(getMovies(value)))
     },[])
 
     return (
