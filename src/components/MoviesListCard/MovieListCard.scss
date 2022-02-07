@@ -1,0 +1,13 @@
+.movie-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .movie{
+    width: 250px;
+    height: 400px;
+    display: flex;
+    align-items: end;
+    text-align: center;
+  }
+}
