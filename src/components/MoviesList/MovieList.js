@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 
-import {getMovieAsync, getMovies} from "../../store";
+import {getMovieAsync} from "../../store";
 import {MovieListCard} from "../MoviesListCard/MovieListCard";
 
 import './MovieList.scss';
