@@ -1,14 +1,14 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
+import {useParams} from "react-router-dom";
 
 import {getMovieAsync} from "../../store";
 import {MovieListCard} from "../MoviesListCard/MovieListCard";
 
 import './MovieList.scss';
-import {useParams} from "react-router-dom";
 
 const MovieList = () => {
-    const {movies} = useSelector(state => state['movieReducer']);
+    const {movies,genreMovies} = useSelector(state => state['movieReducer']);
     const dispatch = useDispatch();
     const {pageId} = useParams();
 
@@ -18,7 +18,10 @@ const MovieList = () => {
 
     return (
         <div className={'movies-wrap'}>
-            {movies.map(movie => <MovieListCard key={movie.id} movie={movie}/>)}
+            {
+                genreMovies.length ? genreMovies.map(sortMovie => <MovieListCard key={sortMovie.id} sortMovie={sortMovie}/>):
+                movies.map(movie => <MovieListCard key={movie.id} movie={movie}/>)}
+            }
         </div>
     );
 };

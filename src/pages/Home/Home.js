@@ -1,6 +1,7 @@
-import {Header, MovieList} from "../../components";
+import {GenreMovies, Header, MovieList, SortGenreMovies} from "../../components";
 
 import './Home.scss';
+
 
 const Home = () => {
     return (
@@ -8,7 +9,8 @@ const Home = () => {
             <Header/>
             <div className={'container'}>
                 <div className={'side-bar'}>
-                    <h2>Side Bar</h2>
+                    <h2>Genre:</h2>
+                    <GenreMovies/>
                 </div>
                 <div><MovieList/></div>
             </div>

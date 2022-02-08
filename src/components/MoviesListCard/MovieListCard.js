@@ -1,16 +1,15 @@
 import './MovieListCard.scss';
-import {Link} from "react-router-dom";
 
-const MovieListCard = ( {movie} ) => {
-    const {id,title,poster_path} = movie;
-    const urlImage = `https://image.tmdb.org/t/p/original${poster_path}`
-
+const MovieListCard = ( {movie,sortMovie} ) => {
     return (
         <div className={'movie-wrap'}>
             <div className={'movie'}>
-                <img src={urlImage}
-                     alt="poster"/>
-                <h2>{title}</h2>
+                { movie ?
+                    <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                     alt="poster"/> :
+                  <img src={`https://image.tmdb.org/t/p/original${sortMovie.poster_path}`}
+                         alt="poster"/> }
+                { movie ? <h2>{movie.title}</h2> : <h2>{sortMovie.title}</h2> }
             </div>
         </div>
     );
