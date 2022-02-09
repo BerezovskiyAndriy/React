@@ -1,14 +1,16 @@
 import React from "react";
 
-import './App.scss';
 import {Navigate, Route, Routes} from "react-router-dom";
-import {Home, MovieList} from "./components";
+import {Home, MoviesDetails} from "./components";
+
+import './App.scss';
 
 function App() {
     return (
             <Routes>
                 <Route index element={<Navigate to={'/movie/page=1'}/>}/>
                 <Route path={'/movie/page=:pageId'} element={<Home/>}/>
+                <Route path={'/movie/page=:pageId/movie_details'} element={<MoviesDetails/>}/>
             </Routes>
     );
 }

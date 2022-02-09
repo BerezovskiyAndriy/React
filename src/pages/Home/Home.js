@@ -1,7 +1,6 @@
-import {GenreMovies, Header, MovieList, SortGenreMovies} from "../../components";
+import {GenreMovies, Header, MovieList} from "../../components";
 
 import './Home.scss';
-
 
 const Home = () => {
     return (

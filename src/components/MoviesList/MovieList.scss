@@ -4,4 +4,10 @@
   justify-content: space-between;
   margin: 20px 10px;
   gap: 60px;
+
+  .btn-pagination{
+    width: 100%;
+    display: flex;
+    column-gap: 20px;
+  }
 }

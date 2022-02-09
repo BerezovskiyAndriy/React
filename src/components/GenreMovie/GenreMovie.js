@@ -1,7 +1,7 @@
 import {useParams} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
-import {getGenreAsync} from '../../store';
+import {getGenreAsync} from "../../store";
 
 import './GenreMovie.scss';
 
