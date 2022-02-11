@@ -1,6 +1,6 @@
 import './Header.scss';
 import user from './../../common/images/user.png'
-import {GenreMovies} from "../GenreMovies/GenreMovies";
+import {Genres} from "../Genres/Genres";
 
 const Header = () => {
     return (
@@ -8,7 +8,7 @@ const Header = () => {
             <div className="logo">
                 OWU Studio
             </div>
-            <GenreMovies/>
+            <Genres/>
             <div className="user">
                 <img src={user}
                      alt="user"/>

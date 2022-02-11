@@ -7,6 +7,8 @@ import {MovieListCard} from "../MoviesListCard/MovieListCard";
 import {moviePaginator} from "../../utils/moviePaginator";
 
 import './MovieList.scss';
+import {Header} from "../Header/Header";
+import {Genre} from "../Genre/Genre";
 
 
 const MovieList = () => {
@@ -25,7 +27,6 @@ const MovieList = () => {
 
     return (
         <div className={'movies-wrap'}>
-
             {
                 movies.map(movie => <MovieListCard key={movie.id} movie={movie}/>)
             }

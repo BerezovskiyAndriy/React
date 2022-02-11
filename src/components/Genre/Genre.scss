@@ -10,7 +10,19 @@
   border: 1px solid transparent;
 }
 
-.btn-genre button:hover {
+.btn-genre button:hover, .active button:hover {
   background-color: #000;
   border: 1px solid #fff;
+}
+
+.active{
+  font-weight: 600;
+  width: 110px;
+  border-radius: 7px;
+  padding: 4px 0;
+  font-style: italic;
+  background-color: #b64352;
+  font-size: 14px;
+  color: #fff;
+  border: 1px solid transparent;
 }
