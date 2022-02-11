@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
 
-import {getGenreAsync, getMovieAsync} from "../../store";
+import {getMovieAsync} from "../../store";
 import {MovieListCard} from "../MoviesListCard/MovieListCard";
 import {moviePaginator} from "../../utils/moviePaginator";
 
