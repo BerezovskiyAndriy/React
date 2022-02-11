@@ -1,11 +1,18 @@
-.container{
-  display: flex;
+.main{
+  padding: 10px;
+  width: 1240px;
+  margin: 10px auto;
 
-  .side-bar{
-    width: 100vw;
+  .container{
+    display: flex;
+    background-color: #fff;
 
-    h2{
-      text-align: center;
+    .side-bar{
+      width: 100vw;
+
+      h2{
+        text-align: center;
+      }
     }
   }
 }

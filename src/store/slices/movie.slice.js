@@ -6,6 +6,7 @@ import {GenreListMovies} from "../../common/GenreListMovies";
 const initialState = {
     movies: [],
     genreList: GenreListMovies,
+    genreMovies: []
 }
 
 export const getMovieAsync = createAsyncThunk(
@@ -19,14 +20,34 @@ export const getMovieAsync = createAsyncThunk(
     }
 )
 
+export const getGenreAsync = createAsyncThunk(
+    'movie/getGenreAsync',
+    async ({pageId, genreId}) => {
+        try {
+            return await movieService.getByIdGenre(+pageId,+genreId)
+        } catch (e) {
+            console.log(e);
+        }
+    }
+)
+
 const movieSlice = createSlice({
     name: 'movie',
     initialState,
     extraReducers: {
         [getMovieAsync.fulfilled]: (state, action) => {
             state.movies = action.payload.results;
+        },
+        [getGenreAsync.fulfilled]: (state, action) => {
+            state.movies = action.payload.results;
         }
     }
 })
 
+
+
+
 export default movieSlice.reducer;
+
+
+

@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
 
-import {getMovieAsync} from "../../store";
+import {getGenreAsync, getMovieAsync} from "../../store";
 import {MovieListCard} from "../MoviesListCard/MovieListCard";
 import {moviePaginator} from "../../utils/moviePaginator";
 
@@ -11,7 +11,6 @@ import './MovieList.scss';
 
 const MovieList = () => {
     const {movies} = useSelector(state => state['movieReducer']);
-    const {genreMovies} = useSelector(state => state['genreReducer']);
     const dispatch = useDispatch();
     const {pageId} = useParams();
 
@@ -26,8 +25,8 @@ const MovieList = () => {
 
     return (
         <div className={'movies-wrap'}>
+
             {
-                genreMovies.length ? genreMovies.map(sortMovie => <MovieListCard key={sortMovie.id} sortMovie={sortMovie}/>):
                 movies.map(movie => <MovieListCard key={movie.id} movie={movie}/>)
             }
             <div className={'btn-pagination'}>

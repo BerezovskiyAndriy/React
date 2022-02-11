@@ -1,15 +1,16 @@
-@import "src/common/colors";
-
-.btn-genre{
-  border: none;
-  padding: 5px 15px;
-  width: 200px;
-  //background-color: #7777dc;
-  background-color: $primary-color;
-  color: $primary-font;
-  border-radius: 5px;
+.btn-genre button {
+  font-weight: 600;
+  width: 110px;
+  border-radius: 7px;
+  padding: 4px 0;
+  font-style: italic;
+  background-color: #777778;
+  font-size: 14px;
+  color: #fff;
+  border: 1px solid transparent;
 }
-.btn-genre:hover{
-  //background-color: #5c5cd9;
-  background-color: $secondary-color;
+
+.btn-genre button:hover {
+  background-color: #000;
+  border: 1px solid #fff;
 }

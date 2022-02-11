@@ -1,14 +1,11 @@
-@import "src/common/colors";
-
 header{
-  height: 50px;
   width: 100%;
-  background-color: $primary-color;
-  color: $primary-font;
+  background-color: #000;
+  color: #fff;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 15px 20px;
 
   input{
     height: 26px;
@@ -18,6 +15,6 @@ header{
   }
 
   .user, .user img{
-    height: 25px;
+    height: 35px;
   }
 }

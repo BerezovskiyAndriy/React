@@ -1,19 +1,24 @@
-import {useParams} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import {useEffect} from "react";
+import {Link, useParams} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 import {getGenreAsync} from "../../store";
 
 import './GenreMovie.scss';
 
 const GenreMovie = ({genre}) => {
-    const {id,name} = genre;
-
     const {pageId} = useParams();
     const dispatch = useDispatch();
 
+    // useEffect(() => {
+    //     dispatch(getGenreAsync({pageId, genreId: genre.id}))
+    // },[+pageId])
+
     return (
-        <div>
-            <button className={'btn-genre'} onClick={() => dispatch(getGenreAsync({pageId,genreId:id}))}>{name}</button>
+        <div className={'btn-genre'}>
+            <Link to={`with_genres=${genre.name}`}>
+                <button>{genre.name}</button>
+            </Link>
         </div>
     );
 };
