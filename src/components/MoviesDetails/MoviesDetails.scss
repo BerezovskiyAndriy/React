@@ -10,7 +10,7 @@
     width: 70%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -51%);
     border-radius: 15px;
   }
 
@@ -50,13 +50,19 @@
       .date-average{
         align-items: center;
         display: flex;
-        margin: 20px 0;
+        margin: 20px 0 35px;
         justify-content: space-around;
+      }
+
+      iframe{
+        width: 95%;
+        height: 412px;
       }
     }
 
     .img {
-      display: inline-block;
+      display: flex;
+      align-items: center;
 
       img {
         width: 300px;

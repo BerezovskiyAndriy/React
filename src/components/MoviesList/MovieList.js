@@ -33,7 +33,9 @@ const MovieList = () => {
             <div className={'btn-pagination'}>
                 {currentPages.map(pages =>
                     <Link to={`/movie/page=${pages}`} key={pages}>
-                        <button>{pages}</button>
+                        <button className={
+                            pages === currentPage ? 'current' : null
+                        }>{pages}</button>
                     </Link>
                 )}
             </div>

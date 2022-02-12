@@ -23,6 +23,9 @@
     }
   }
 }
+.btn-pagination  button.current{
+  background-color: red
+}
 
 .btn-pagination button:hover{
   background-color: #fff;
@@ -30,3 +33,4 @@
   font-weight: bold;
   transition: ease-in-out .2s;
 }
+

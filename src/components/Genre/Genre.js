@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import {getMovieByGenres, toggleGenreStatus} from "../../store";
 

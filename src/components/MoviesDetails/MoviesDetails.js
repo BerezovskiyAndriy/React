@@ -11,19 +11,21 @@ const MoviesDetails = () => {
     const dispatch = useDispatch();
     const {genreList,videos} = useSelector(state1 => state1['movieReducer']);
 
-    const urlImg = `https://image.tmdb.org/t/p/original${state.poster_path}`;
-    // const urlVideo = `https://www.youtube.com/embed/${videos.results[0].key}`;
-
     useEffect(() => {
         dispatch(getVideos({id: state.id}))
     }, [])
 
     const genreDetails = [];
+    const key = [];
 
-    genreList.map(genre => state.genre_ids.includes(genre.id) ? genreDetails.push(genre.name) : '')
+    videos.results ? videos.results.map(video => key.push(video.key)) : console.log('Error');
+    genreList.map(genre => state.genre_ids.includes(genre.id) ? genreDetails.push(genre.name) : '');
+
+    const urlImg = `https://image.tmdb.org/t/p/original${state.poster_path}`;
+    const urlVideo = `https://www.youtube.com/embed/${key[0]}`;
 
     return (
-        <div className={'details-wrap'} style={{ background: `url(${urlImg}) no-repeat`, 'background-size': 'cover' }}>
+        <div className={'details-wrap'} style={{ background: `url(${urlImg}) no-repeat`, backgroundSize: 'cover'}}>
             <div className={'main'}>
                 <div className={'content'}>
                     <div className={'img'}>
@@ -40,9 +42,9 @@ const MoviesDetails = () => {
                             <div>{state.release_date}</div>
                             <div>&#9734; {state.vote_average}</div>
                         </div>
+                        <iframe src={urlVideo} allowFullScreen>Official trailer</iframe>
                     </div>
                 </div>
-                {/*<iframe src={urlVideo}>Official trailer</iframe>*/}
             </div>
         </div>
     );

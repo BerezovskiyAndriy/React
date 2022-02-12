@@ -59,7 +59,7 @@ const movieSlice = createSlice({
       toggleGenreStatus: (state,action) => {
         state.genreList = state.genreList.map(genre => {
             if (genre.id === action.payload) {
-                genre.isActive = !genre.isActive
+                genre.isActive = true  // !genre.isActive
             } else {
                 genre.isActive = false
             }
@@ -84,8 +84,6 @@ const movieSlice = createSlice({
         }
     }
 })
-
-
 
 export const {toggleGenreStatus} = movieSlice.actions;
 

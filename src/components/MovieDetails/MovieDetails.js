@@ -1,6 +1,8 @@
+import './MovieDetails.scss'
+
 const MovieDetails = () => {
     return (
-        <div>
+        <div className={'MovieDetails'}>
             MovieDetails
         </div>
     );
