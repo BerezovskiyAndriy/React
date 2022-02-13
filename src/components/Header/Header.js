@@ -22,12 +22,15 @@ const Header = () => {
     
     return (
         <header className={light ? 'light-header' : ''}>
-            <div className='logo'>
+            <div className={light ? 'light-logo' : 'logo'}>
                     OWU Studio
             </div>
             <Genres/>
             <div className='user'>
-                <input type='checkbox' checked={item}  className={'switch'} onChange={onChange}/>
+                <label className={'switch-wrap'}>
+                    <input type='checkbox' checked={item}  className={'switch'} onChange={onChange}/>
+                    <span className={'toggle-theme'}/>
+                </label>
                 <img src={user}
                      alt='user'/>
             </div>
