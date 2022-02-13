@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {getMovieAsync, resetGenreId, setGenreId, toggleGenreStatus} from '../../store';
@@ -11,12 +11,10 @@ const Genre = ({genre}) => {
     const {light} = useSelector(state => state['lightThemeReducer']);
     const {pageId} = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (genre.isActive === true) {
             dispatch(getMovieAsync({pageId, genreId}))
-            navigate(`/movie/page=${pageId}/with_genres=${genre.name}`)
         }
         dispatch(getMovieAsync({pageId, genreId}))
     }, [genre.isActive, +pageId,genreId])
