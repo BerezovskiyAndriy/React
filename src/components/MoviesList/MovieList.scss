@@ -1,4 +1,4 @@
-.movies-wrap{
+.movies-wrap, .light-movie-wrap{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -32,5 +32,9 @@
   color: #000;
   font-weight: bold;
   transition: ease-in-out .2s;
+}
+
+.light-movie-wrap{
+  background-color: #000;
 }
 

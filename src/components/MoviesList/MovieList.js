@@ -2,17 +2,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
 
-import {getMovieAsync} from "../../store";
+import {getMovieAsync, resetVideos} from "../../store";
 import {MovieListCard} from "../MoviesListCard/MovieListCard";
 import {moviePaginator} from "../../utils/moviePaginator";
 
 import './MovieList.scss';
-import {Header} from "../Header/Header";
-import {Genre} from "../Genre/Genre";
-
 
 const MovieList = () => {
-    const {movies} = useSelector(state => state['movieReducer']);
+    const {movies,genreId} = useSelector(state => state['movieReducer']);
+    const {light} = useSelector(state => state['lightThemeReducer']);
+
     const dispatch = useDispatch();
     const {pageId} = useParams();
 
@@ -22,11 +21,14 @@ const MovieList = () => {
     moviePaginator(currentPage,currentPages);
 
     useEffect(() => {
-        dispatch(getMovieAsync(pageId))
+        dispatch(getMovieAsync({pageId,genreId}))
+        dispatch(resetVideos())
     },[+pageId])
 
+
+
     return (
-        <div className={'movies-wrap'}>
+        <div className={light ? 'light-movie-wrap' : 'movies-wrap'}>
             {
                 movies.map(movie => <MovieListCard key={movie.id} movie={movie}/>)
             }

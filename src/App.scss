@@ -4,12 +4,16 @@
   box-sizing: border-box;
 }
 
-body{
-  background-color:  #000;
-}
-
 a{
   text-decoration: none;
+}
+
+.body{
+  background-color: #000;
+}
+
+.light-body{
+  background-color: #fff;
 }
 
 ul, ol{

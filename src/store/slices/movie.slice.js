@@ -5,14 +5,17 @@ import {movieService} from "../../services/movie.service";
 const initialState = {
     movies: [],
     genreList: [],
-    videos: []
+    videos: [],
+    videosStatus:null,
+    videoUrl: null,
+    genreId: null
 }
 
 export const getMovieAsync = createAsyncThunk(
     'movie/getMovieAsync',
-    async (page) => {
+    async ({pageId, genreId}) => {
         try {
-            return await movieService.getByPage(page);
+            return await movieService.getByIdGenre(+pageId,genreId)
         } catch (e) {
             console.log(e);
         }
@@ -24,17 +27,6 @@ export const getGenreListAsync = createAsyncThunk(
     async () => {
         try {
             return await movieService.getListGenre()
-        } catch (e) {
-            console.log(e);
-        }
-    }
-)
-
-export const getMovieByGenres = createAsyncThunk(
-    'movie/getGenreAsync',
-    async ({pageId, genreId}) => {
-        try {
-            return await movieService.getByIdGenre(+pageId,+genreId)
         } catch (e) {
             console.log(e);
         }
@@ -59,19 +51,29 @@ const movieSlice = createSlice({
       toggleGenreStatus: (state,action) => {
         state.genreList = state.genreList.map(genre => {
             if (genre.id === action.payload) {
-                genre.isActive = true  // !genre.isActive
+                genre.isActive = !genre.isActive
             } else {
                 genre.isActive = false
             }
             return genre
         })
-      }
+      },
+      resetVideos: (state, action) => {
+          state.videos = [];
+          state.videoUrl = null;
+      },
+      addVideoUrl: (state, action) => {
+          state.videoUrl = action.payload
+        },
+      setGenreId: (state, action) => {
+          state.genreId = action.payload
+      },
+      resetGenreId: (state) => {
+            state.genreId = null
+       }
     },
     extraReducers: {
         [getMovieAsync.fulfilled]: (state, action) => {
-            state.movies = action.payload.results;
-        },
-        [getMovieByGenres.fulfilled]: (state, action) => {
             state.movies = action.payload.results;
         },
         [getGenreListAsync.fulfilled]: (state, action) => {
@@ -79,13 +81,18 @@ const movieSlice = createSlice({
                 return {...genre, isActive: false}
             });
         },
+        [getVideos.pending]: (state,action) => {
+            state.videosStatus = 'pending'
+            state.videos = []
+        },
         [getVideos.fulfilled]: (state,action) => {
-            state.videos = action.payload;
-        }
+            state.videosStatus = 'fulfilled'
+            state.videos = action.payload.results;
+        },
     }
 })
 
-export const {toggleGenreStatus} = movieSlice.actions;
+export const {toggleGenreStatus,setGenreId,resetGenreId,resetVideos,addVideoUrl} = movieSlice.actions;
 
 export default movieSlice.reducer;
 

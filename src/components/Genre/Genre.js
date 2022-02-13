@@ -2,25 +2,34 @@ import {useEffect} from "react";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
-import {getMovieByGenres, toggleGenreStatus} from "../../store";
+import {getMovieAsync, getMovieByGenres, resetGenreId, setGenreId, toggleGenreStatus} from "../../store";
 
 import './Genre.scss';
 
 const Genre = ({genre}) => {
+    const {genreId} = useSelector(state => state['movieReducer']);
+    const {light} = useSelector(state => state['lightThemeReducer']);
     const {pageId} = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (genre.isActive === true) {
-            dispatch(getMovieByGenres({pageId, genreId: genre.id}))
+            dispatch(getMovieAsync({pageId, genreId}))
             navigate(`/movie/page=${pageId}/with_genres=${genre.name}`)
         }
-    }, [genre.isActive, +pageId])
+        dispatch(getMovieAsync({pageId, genreId}))
+    }, [genre.isActive, +pageId,genreId])
 
     return (
         <div className={genre.isActive ? 'active' : 'btn-genre'}>
-            <button onClick={() => dispatch(toggleGenreStatus(genre.id))}>{genre.name}</button>
+            <button onClick={() => {
+                dispatch(setGenreId(genre.id))
+                if (genre.isActive) {
+                    dispatch(resetGenreId())
+                }
+                dispatch(toggleGenreStatus(genre.id))
+            }} className={light ? 'light-genre' : null}><span>{genre.name}</span></button>
         </div>
     );
 };
