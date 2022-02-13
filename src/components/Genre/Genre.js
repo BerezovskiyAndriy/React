@@ -1,8 +1,8 @@
-import {useEffect} from "react";
-import {Link, useNavigate, useParams} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from 'react';
+import {useNavigate, useParams} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 
-import {getMovieAsync, getMovieByGenres, resetGenreId, setGenreId, toggleGenreStatus} from "../../store";
+import {getMovieAsync, resetGenreId, setGenreId, toggleGenreStatus} from '../../store';
 
 import './Genre.scss';
 

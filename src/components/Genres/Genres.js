@@ -1,9 +1,10 @@
-import {useDispatch, useSelector} from "react-redux";
-import {Genre} from "../Genre/Genre";
+import {useDispatch, useSelector} from 'react-redux';
+import {useEffect} from 'react';
+
+import {getGenreListAsync} from '../../store';
+import {Genre} from '../Genre/Genre';
 
 import './Genres.scss';
-import {useEffect} from "react";
-import {getGenreListAsync} from "../../store";
 
 const Genres = () => {
     const dispatch = useDispatch();
@@ -12,7 +13,6 @@ const Genres = () => {
     useEffect(() => {
         dispatch(getGenreListAsync())
     },[])
-
 
     return (
         <div className={'genres'}>

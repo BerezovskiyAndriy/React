@@ -1,8 +1,8 @@
-import {Header, MovieList} from "../../components";
+import {useSelector} from 'react-redux';
+
+import {Header, MovieList} from '../../components';
 
 import './Home.scss';
-import {Outlet} from "react-router-dom";
-import {useSelector} from "react-redux";
 
 const Home = () => {
     const {light} = useSelector(state => state['lightThemeReducer']);

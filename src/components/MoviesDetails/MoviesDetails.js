@@ -1,16 +1,16 @@
-import {useLocation} from "react-router-dom";
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useLocation} from 'react-router-dom';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
-import {addVideoUrl, getVideos} from "../../store";
+import {addVideoUrl, getVideos} from '../../store';
 
 import './MoviesDetails.scss';
 
 const MoviesDetails = () => {
-    const {state} = useLocation();
-    const dispatch = useDispatch();
     const {genreList,videos,videosStatus,videoUrl} = useSelector(state1 => state1['movieReducer']);
     const {light} = useSelector(state => state['lightThemeReducer']);
+    const {state} = useLocation();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getVideos({id: state.id}))
@@ -35,7 +35,7 @@ const MoviesDetails = () => {
                 <div className={'content'}>
                     <div className={'img'}>
                         <img src={urlImg}
-                             alt="poster"/>
+                             alt='poster'/>
                     </div>
                     <div className={'text'}>
                         <h1>{state.title}</h1>

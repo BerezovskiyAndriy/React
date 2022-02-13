@@ -1,17 +1,16 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {Link, useParams} from "react-router-dom";
+import {useDispatch, useSelector} from 'react-redux';
+import {useEffect} from 'react';
+import {Link, useParams} from 'react-router-dom';
 
-import {getMovieAsync, resetVideos} from "../../store";
-import {MovieListCard} from "../MoviesListCard/MovieListCard";
-import {moviePaginator} from "../../utils/moviePaginator";
+import {getMovieAsync, resetVideos} from '../../store';
+import {MovieListCard} from '../MoviesListCard/MovieListCard';
+import {moviePaginator} from '../../utils/moviePaginator';
 
 import './MovieList.scss';
 
 const MovieList = () => {
     const {movies,genreId} = useSelector(state => state['movieReducer']);
     const {light} = useSelector(state => state['lightThemeReducer']);
-
     const dispatch = useDispatch();
     const {pageId} = useParams();
 
@@ -24,9 +23,7 @@ const MovieList = () => {
         dispatch(getMovieAsync({pageId,genreId}))
         dispatch(resetVideos())
     },[+pageId])
-
-
-
+    
     return (
         <div className={light ? 'light-movie-wrap' : 'movies-wrap'}>
             {

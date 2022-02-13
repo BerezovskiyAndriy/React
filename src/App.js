@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
+import {Navigate, Route, Routes} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
-import {Navigate, Route, Routes} from "react-router-dom";
-import {Home, MovieList, MoviesDetails} from "./components";
+import {Home, MoviesDetails} from './components';
 
 import './App.scss';
-import {useSelector} from "react-redux";
 
 function App() {
     const {light} = useSelector(state => state['lightThemeReducer']);
